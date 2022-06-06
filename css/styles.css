@@ -426,21 +426,26 @@ p {
 }
 
 .team-list .card-text {
-  padding: 30px;
+  padding: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .circle {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   /* background-color: teal; */
   border-radius: 50%;
 }
 .social-list {
   display: flex;
-  justify-content: space-between;
+}
+.social-item:not(:last-child) {
+  margin-right: 10px;
 }
 .circle:hover,
 .circle:focus {
@@ -497,11 +502,7 @@ p {
 
 .adress-column {
   /* background-color: teal; */
-  margin-right: 70px;
-}
-
-.footer .social-list {
-  margin-left: 10px;
+  margin-right: 75px;
 }
 
 .footer .item:not(:last-child) {
@@ -515,6 +516,10 @@ p {
 .footer .circle:hover,
 .footer .circle:focus {
   background-color: var(--accent);
+}
+
+.footer .social-icon {
+  fill: var(--background-white);
 }
 
 .social-column .title {
