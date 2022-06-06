@@ -9,6 +9,7 @@
   --icon-gray: #afb1b8;
   --background-white: #ffffff;
   --background-white-transperent: rgba(255, 255, 255, 0.1);
+  --background-grey-transparent: rgba(47, 48, 58, 0.8);
   --background-light-gray: #f5f4fa;
   --background-dark-gray: #2f303a;
   --text-black: #000000;
@@ -18,6 +19,7 @@
   --text-gray-alfa: rgba(255, 255, 255, 0.6);
   --accent: #2196f3;
   --accent-hover: #188ce8;
+  --accent-transparent: rgba(33, 150, 243, 0.9);
   --font-main: Roboto, sans-serif;
   --font-decor: Raleway, Segoe UI, sans-serif;
   --border-gray: rgba(236, 236, 236, 1);
@@ -109,18 +111,78 @@ p {
   margin-left: var(--card-gap);
 }
 
-/* --------------------------------------------------------------------------------------------------------------------- */
-/* Page Index */
-/* header */
+/* _________________________________Modal Window______________________________ */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
 
-/* .nav {
-} */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+  background-color: var(--background-white);
+  border-radius: 4px;
+}
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--background-white);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.close-button:hover {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.icon-close {
+  width: 18px;
+  height: 18px;
+}
+/* ____________________________________________________________________________________ */
+/* Page Index_________________________________________________________ */
+/* header_____________________________________________________________ */
 
 .header {
   font-weight: 500;
   line-height: 1.1;
   letter-spacing: 0.02em;
   border-bottom: 1px solid var(--border-gray);
+  background-color: var(--background-white);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  z-index: 1;
 }
 .menu {
   display: flex;
@@ -149,12 +211,25 @@ p {
   display: flex;
   color: var(--text-dark-gray);
 }
-/* .nav-item {
-} */
 
 /* Відступи пунктів навігації_________________________ */
 .nav-list .nav-item + .nav-item {
   margin-left: 50px;
+}
+.nav-item {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.link.current::after {
+  content: ' ';
+  background-color: var(--accent);
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
 }
 /* або так: */
 /* .nav-list .nav-item:not(:last-child) {
@@ -167,7 +242,7 @@ p {
   display: flex;
   align-items: center;
   padding-top: 32px;
-  padding-bottom: 32px;
+  padding-bottom: 31px;
 }
 .nav-item .link:hover,
 .nav-item .link:focus {
@@ -196,7 +271,7 @@ p {
   fill: currentColor;
 }
 
-/* main________________________________________________ */
+/* Main________________________________________________ */
 
 .hero.section {
   padding-top: 200px;
@@ -274,9 +349,7 @@ p {
   text-align: center;
   letter-spacing: 0.03em;
 }
-.preview .item {
-  flex-basis: calc(100% / 3 - var(--card-gap));
-}
+
 .specifics-icon {
   display: flex;
   justify-content: center;
@@ -290,15 +363,40 @@ p {
   width: 70px;
   height: 70px;
 }
+
+/* Whot we do____________________________________ */
+.preview .item {
+  flex-basis: calc(100% / 3 - var(--card-gap));
+}
+.preview-thumb {
+  position: relative;
+}
+
+.preview-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.1428;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--text-white);
+  background-color: var(--background-grey-transparent);
+
+  display: inline-block;
+  width: 100%;
+  padding: 27px 0px;
+
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
 /* team __________________________________________*/
 .team {
   background-color: var(--background-light-gray);
 }
-/* .team-title {
-} */
-/* .team-list {
 
-} */
 .team-list > .item {
   display: block;
   background-color: var(--background-white);
@@ -310,9 +408,11 @@ p {
 .team-list .photo {
   margin-bottom: 20px;
 }
+
 .team-worker {
   margin-bottom: 10px;
 }
+
 .team-worker,
 .team-description {
   font-weight: 500;
@@ -320,16 +420,15 @@ p {
   line-height: 1.1875;
   text-align: center;
 }
+
 .team-description {
   margin-bottom: 16px;
 }
+
 .team-list .card-text {
   padding: 30px;
 }
 
-/* .social {
-  outline: 1px solid orange;
-} */
 .circle {
   display: flex;
   justify-content: center;
@@ -379,10 +478,12 @@ p {
   height: 60px;
   fill: var(--icon-gray);
 }
+
 .company-link:hover,
 .company-link:focus {
   border: 1px solid var(--accent);
 }
+
 .company-link:hover .company-icon,
 .company-link:focus .company-icon {
   fill: var(--accent);
@@ -393,6 +494,7 @@ p {
   display: flex;
   align-items: baseline;
 }
+
 .adress-column {
   /* background-color: teal; */
   margin-right: 70px;
@@ -414,6 +516,7 @@ p {
 .footer .circle:focus {
   background-color: var(--accent);
 }
+
 .social-column .title {
   color: var(--text-white);
   text-transform: uppercase;
@@ -429,58 +532,57 @@ p {
   padding-bottom: 60px;
   background-color: var(--background-dark-gray);
 }
+
 .footer-logo {
   display: block;
   margin-bottom: 20px;
 }
+
 .logo-white {
   color: var(--text-white);
 }
+
 .logo:hover .logo-white,
 .logo:focus .logo-white {
   color: var(--accent);
 }
+
 .address {
   font-style: inherit;
 }
-/* .address-list {
-} */
+
 .address-link {
   color: var(--text-gray-alfa);
 }
+
 .address-link[target='_blank'] {
   color: var(--text-white);
 }
+
 .address-link:hover,
 .address-link:focus {
   color: var(--accent);
 }
+
 .address-list > .item {
   display: block;
   margin-bottom: 5px;
 }
-.address-link > .item:not(:last-child) {
-}
 
-/* _____Page Portfolio______________________________________________________________ */
-/* .portfolio {
-} */
-/* filter */
+/* ___________________________Page Portfolio_____________________________________ */
+
+/* filter ______________________________________*/
 
 .filter-list {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
 }
-/* .filter-item {
-} */
+
 .filter-list .filter-item:not(:last-child) {
   margin-right: 10px;
 }
 
-/* .nav-list .nav-item:not(:last-child) {
-  margin-right: 50px;
-} */
 .filter-button {
   font-family: var(--font-main);
   font-weight: 500;
@@ -504,8 +606,7 @@ p {
 }
 
 /* Portfolio__________________________________________ */
-/* .portfolio-list {
-} */
+
 .portfolio-item {
   background-color: var(--background-white);
   width: calc(100% / 3 - var(--card-gap));
@@ -539,4 +640,35 @@ p {
   border-right: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
+}
+
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-overlay {
+  /* geometry */
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-transparent);
+
+  /* position */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  /* animation */
+  transition: 250ms transform linear;
+  transform: translateY(100%);
+}
+.portfolio-description {
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--text-white);
+  padding: 63px 24px;
+}
+.portfolio-link:hover .portfolio-overlay {
+  transform: translateY(0%);
 }
