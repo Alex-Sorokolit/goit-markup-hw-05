@@ -619,6 +619,8 @@ p {
 .portfolio-link {
   display: flex;
   flex-direction: column;
+
+  transition: 250ms opasity cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-link:hover,
 .portfolio-link:focus {
@@ -664,7 +666,7 @@ p {
   left: 0;
 
   /* animation */
-  transition: 250ms transform linear;
+  transition: 250ms transform cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(100%);
 }
 .portfolio-description {
@@ -674,6 +676,7 @@ p {
   color: var(--text-white);
   padding: 63px 24px;
 }
-.portfolio-link:hover .portfolio-overlay {
+.portfolio-link:hover .portfolio-overlay,
+.portfolio-link:focus .portfolio-overlay {
   transform: translateY(0%);
 }
