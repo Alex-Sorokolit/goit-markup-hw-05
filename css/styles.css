@@ -124,11 +124,17 @@ p {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+
+  transition: opacity var(--time-animatio) var(--cubic-bezier);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
 }
 
 .modal {
@@ -141,6 +147,9 @@ p {
   min-height: 581px;
   background-color: var(--background-white);
   border-radius: 4px;
+  transform: translate(-50%, -50%) scale(1);
+
+  transition: transform var(--time-animatio) var(--cubic-bezier);
 }
 
 .close-button {
@@ -158,6 +167,11 @@ p {
 
   background: var(--background-white);
   border: 1px solid rgba(0, 0, 0, 0.1);
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0), 0px 1px 1px rgba(0, 0, 0, 0),
+    0px 2px 1px rgba(0, 0, 0, 0);
+
+  transition: box-shadow var(--time-animatio) var(--cubic-bezier);
 }
 
 .close-button:hover {
