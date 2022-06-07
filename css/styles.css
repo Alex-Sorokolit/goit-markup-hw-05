@@ -141,13 +141,12 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   min-width: 528px;
   min-height: 581px;
   background-color: var(--background-white);
   border-radius: 4px;
-  transform: translate(-50%, -50%) scale(1);
 
   transition: transform var(--time-animatio) var(--cubic-bezier);
 }
