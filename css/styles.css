@@ -29,6 +29,9 @@
 
   --card-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+  --time-animatio: 250ms;
+  --transition-color: color var(--time-animatio) var(--cubic-bezier);
 }
 
 /* Fonts Palet*/
@@ -201,7 +204,13 @@ p {
 }
 .logo-black {
   color: var(--text-black);
+
+  /* transition-property: color;
+  transition-duration: var(--time-animatio);
+  transition-timing-function: var(--cubic-bezier); */
+  transition: color var(--time-animatio) var(--cubic-bezier);
 }
+
 .logo:hover .logo-black,
 .logo:focus .logo-black {
   color: var(--accent);
@@ -244,6 +253,11 @@ p {
   padding-top: 32px;
   padding-bottom: 31px;
 }
+
+.nav-item .link {
+  transition: color var(--time-animatio) var(--cubic-bezier);
+}
+
 .nav-item .link:hover,
 .nav-item .link:focus {
   color: var(--accent);
@@ -253,15 +267,14 @@ p {
   align-items: center;
   margin-left: auto;
 }
-/* .auth-item .link {
-  display: flex;
-  align-items: center;
-} */
+
 .auth-list .auth-item + .auth-item {
   margin-left: 30px;
 }
-/* .auth-item {
-} */
+
+.auth-item .link {
+  transition: color var(--time-animatio) var(--cubic-bezier);
+}
 .auth-item .link:hover,
 .auth-item .link:focus {
   color: var(--accent);
@@ -319,6 +332,7 @@ p {
   background-color: var(--accent);
   border: 1px solid transparent;
   border-radius: 4px;
+  transition: background-color var(--time-animatio) var(--cubic-bezier);
 }
 .hero-button:hover,
 .hero-button:focus {
@@ -440,6 +454,8 @@ p {
   height: 44px;
   /* background-color: teal; */
   border-radius: 50%;
+
+  transition: background-color var(--time-animatio) var(--cubic-bezier);
 }
 .social-list {
   display: flex;
@@ -455,6 +471,8 @@ p {
   width: 20px;
   height: 20px;
   fill: var(--icon-gray);
+
+  transition: fill var(--time-animatio) var(--cubic-bezier);
 }
 .circle:hover .social-icon,
 .circle:focus .social-icon {
@@ -477,11 +495,15 @@ p {
   height: 92px;
   border: 1px solid var(--icon-gray);
   border-radius: 4px;
+
+  transition: border var(--time-animatio) var(--cubic-bezier);
 }
 .company-icon {
   width: 106px;
   height: 60px;
   fill: var(--icon-gray);
+
+  transition: fill var(--time-animatio) var(--cubic-bezier);
 }
 
 .company-link:hover,
@@ -545,6 +567,8 @@ p {
 
 .logo-white {
   color: var(--text-white);
+
+  transition: color var(--time-animatio) var(--cubic-bezier);
 }
 
 .logo:hover .logo-white,
@@ -558,10 +582,14 @@ p {
 
 .address-link {
   color: var(--text-gray-alfa);
+
+  transition: color var(--time-animatio) var(--cubic-bezier);
 }
 
 .address-link[target='_blank'] {
   color: var(--text-white);
+
+  transition: color var(--time-animatio) var(--cubic-bezier);
 }
 
 .address-link:hover,
@@ -594,12 +622,19 @@ p {
   font-size: 16px;
   line-height: 1.6;
   text-align: center;
+  padding: 6px 22px;
 
   color: var(--text-dark-gray);
   background-color: var(--background-light-gray);
   border: none;
   border-radius: 4px;
-  padding: 6px 22px;
+
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0), 0px 1px 2px rgba(0, 0, 0, 0),
+    0px 2px 2px rgba(0, 0, 0, 0);
+
+  transition: color var(--time-animatio) var(--cubic-bezier),
+    background-color var(--time-animatio) var(--cubic-bezier),
+    box-shadow var(--time-animatio) var(--cubic-bezier);
 }
 
 .filter-button:hover,
@@ -619,8 +654,10 @@ p {
 .portfolio-link {
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0), 0px 4px 4px rgba(0, 0, 0, 0),
+    1px 4px 6px rgba(0, 0, 0, 0);
 
-  transition: 250ms opasity cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--time-animatio) var(--cubic-bezier);
 }
 .portfolio-link:hover,
 .portfolio-link:focus {
@@ -654,8 +691,8 @@ p {
   overflow: hidden;
 }
 
+/* geometry */
 .portfolio-overlay {
-  /* geometry */
   width: 100%;
   height: 100%;
   background-color: var(--accent-transparent);
@@ -666,7 +703,7 @@ p {
   left: 0;
 
   /* animation */
-  transition: 250ms transform cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--time-animatio) var(--cubic-bezier);
   transform: translateY(100%);
 }
 .portfolio-description {
