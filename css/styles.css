@@ -265,14 +265,12 @@ p {
   align-items: center;
   padding-top: 32px;
   padding-bottom: 31px;
-}
-
-.nav-item .link {
   transition: color var(--time-animatio) var(--cubic-bezier);
 }
 
 .nav-item .link:hover,
-.nav-item .link:focus {
+.nav-item .link:focus,
+.current {
   color: var(--accent);
 }
 .auth-list {
@@ -285,9 +283,6 @@ p {
   margin-left: 30px;
 }
 
-.auth-item .link {
-  transition: color var(--time-animatio) var(--cubic-bezier);
-}
 .auth-item .link:hover,
 .auth-item .link:focus {
   color: var(--accent);
@@ -601,8 +596,6 @@ p {
 
 .address-link[target='_blank'] {
   color: var(--text-white);
-
-  transition: color var(--time-animatio) var(--cubic-bezier);
 }
 
 .address-link:hover,
